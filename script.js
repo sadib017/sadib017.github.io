@@ -57,26 +57,9 @@ window.addEventListener('scroll', () => {
 });
 backTop.style.opacity = '0';
 backTop.style.transition = 'opacity 0.3s';
-/* ── AVATAR UPLOAD (click to replace) ── */
-const avatarEl = document.getElementById('avatarEl');
-avatarEl.title = 'Click to upload photo';
-avatarEl.style.cursor = 'pointer';
-avatarEl.addEventListener('click', () => {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/*';
-  input.onchange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const url = URL.createObjectURL(file);
-    avatarEl.innerHTML = '';
-    const img = document.createElement('img');
-    img.src = url;
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%;';
-    avatarEl.appendChild(img);
-  };
-  input.click();
-});
+/* ── AVATAR
+
+
 /* ── INTEREST TAG interaction ── */
 document.querySelectorAll('.interest-tag').forEach(tag => {
   tag.addEventListener('click', () => {

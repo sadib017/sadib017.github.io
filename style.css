@@ -143,11 +143,16 @@ nav {
 .avatar:hover {
   box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--accent);
 }
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .hero-eyebrow {
-  font-size: 11px;
+  font-size: 12.5px;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
+  color: #bdd883;
   margin-bottom: 0.75rem;
 }
 .hero-name {
@@ -336,10 +341,10 @@ nav {
 }
 .proj-links-top a:hover { color: var(--accent); }
 .proj-title {
-  font-family: 'Lato', sans-serif;
-  font-size: 13px;
+  font-family: 'fira code', sans-serif;
+  font-size: 13.5px;
   font-weight: 700;
-  color: var(--ink);
+  color:#d0ccc4;
   line-height: 1.4;
   margin-bottom: 0.6rem;
 }
@@ -514,13 +519,13 @@ nav {
   line-height: 1.6;
 }
 .tl-role {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--ink);
+  color: #bdd883;
   margin-bottom: 2px;
 }
 .tl-org {
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 0.5rem;
 }
 .tl-desc {
@@ -567,7 +572,7 @@ nav {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  background: var(--accent);
+  background: #12403c;
   color: #fff;
   padding: 3px 9px;
   border-radius: 3px;
@@ -669,4 +674,45 @@ footer {
   .timeline-item, .pub-item { grid-template-columns: 1fr; gap: 0.4rem; }
   .tl-period, .pub-year { font-size: 10px; }
   .nav-links { display: none; }
+}
+
+/* ── CERTIFICATES ── */
+.cert-list { display: flex; flex-direction: column; }
+.cert-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  gap: 1rem;
+}
+.cert-row:last-child { border-bottom: none; }
+.cert-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.cert-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #bdd883;
+  transition: color 0.2s;
+}
+.cert-name:hover { color: var(--accent); }
+.cert-sep {
+  color: var(--ink3);
+  font-size: 13px;
+}
+.cert-org {
+  font-size: 13px;
+  font-weight: 400;
+  color: #9aa0b4;
+}
+.cert-date {
+  font-size: 11px;
+  color: var(--ink3);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
 }
