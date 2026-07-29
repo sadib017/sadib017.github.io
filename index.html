@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Raya — Medical Imaging Researcher. Deep Learning, Computer Vision, Ultrasound AI." />
+  <meta name="description" content="Portfolio of Sadib Hasan, a CSE undergraduate focused on backend development, machine learning, applied AI, and research." />
   <title>Sadib</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <span class="">Made with ❤️ by <i>Sadib</i></span>
+      <a href="#hero" class="nav-logo">Sadib Hasan</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#interests">Research</a></li>
@@ -24,6 +24,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -55,12 +56,11 @@
           <span class="icon-row"><span class="icon">📍</span> Dhaka, Bangladesh</span>
         </div>
         <div class="hero-links">
-          <a href="" target="_blank" class="link-btn"><span>🌐</span> Website</a>
-          <a href="https://www.linkedin.com/in/sadib-hasan-85082b185/" target="_blank" class="link-btn"><span>in</span> LinkedIn</a>
-          <a href="https://github.com/sadib017" target="_blank" class="link-btn"><span>⌥</span> GitHub</a>
-          <!-- <a href="#" target="_blank" class="link-btn"><span>🎓</span> Scholar</a> -->
-          <a href="https://orcid.org/0009-0004-0665-2285" target="_blank" class="link-btn"><span>🎓</span> orcid</a>
-          <a href="https://www.kaggle.com/sadibhasan" target="_blank" class="link-btn"><span>🤗</span> Kaggle</a>
+                    <a href="https://www.linkedin.com/in/sadib-hasan-85082b185/" target="_blank" rel="noopener noreferrer" class="link-btn"><span>in</span> LinkedIn</a>
+          <a href="https://github.com/sadib017" target="_blank" rel="noopener noreferrer" class="link-btn"><span>⌥</span> GitHub</a>
+          <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="link-btn"><span>🎓</span> Scholar</a> -->
+          <a href="https://orcid.org/0009-0004-0665-2285" target="_blank" rel="noopener noreferrer" class="link-btn"><span>🎓</span> orcid</a>
+          <a href="https://www.kaggle.com/sadibhasan" target="_blank" rel="noopener noreferrer" class="link-btn"><span>🤗</span> Kaggle</a>
         </div>
       </div>
     </div>
@@ -77,39 +77,19 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            Hi, I’m Sadib — a passionate Computer Science student from Bangladesh with a strong interest in Machine Learning, and Software Development. I enjoy building projects that solve real-world problems and continuously exploring new technologies to improve my skills.
-            Currently, I’m focused on <strong> Python, SQL, JavaScript, and Software development </strong> while also learning more about AI and data-driven applications. I love working on practical projects, learning by building, and turning ideas into functional solutions.
-            I’m actively looking for opportunities to grow as a developer, collaborate with others, and contribute to impactful projects in tech.
-          </p>
-          <!-- <p style="margin-top:1rem;">
-            Active on <a href="#" class="accent-link">Kaggle</a>, where I maintain notebooks for bone tumor classification,
-            thyroid external validation, and psychometric data science pipelines.
-            Previously built a Vision Transformer ensemble for breast tumor classification and a
-            Detectron2 segmentation pipeline for tumor detection.
-          </p> -->
-          <p style="margin-top:1rem;">
-            I also actively participate in volunteering, leadership, and teamwork-based activities that have helped me develop communication, collaboration, and problem-solving skills. I enjoy working with others, organizing initiatives, and contributing to communities and projects that create meaningful impact.
-
+            Computer Science and Engineering undergraduate focused on <strong>backend software development, machine learning, and applied AI</strong>. I build practical web applications and research systems using Python, PHP, Django, Laravel, SQL, and modern machine learning tools. My experience in research, community management, and campus leadership has strengthened my problem-solving, communication, and teamwork.
           </p>
         </div>
-        <!-- <div class="stat-grid">
-          <div class="stat-card">
-            <span class="stat-num accent">5+</span>
-            <span class="stat-label">Research Projects</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num accent">5-Fold</span>
-            <span class="stat-label">CV Ensembles</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num accent">TN5000</span>
-            <span class="stat-label">Primary Dataset</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num accent">1st</span>
-            <span class="stat-label">Year Researcher</span>
-          </div>
-        </div> -->
+
+        <aside class="about-focus" aria-label="Current focus areas">
+          <p class="about-focus-label">Current Focus</p>
+          <ul class="about-focus-list">
+            <li>Backend development</li>
+            <li>REST APIs and databases</li>
+            <li>Applied ML research</li>
+            <li>Trustworthy AI systems</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
@@ -144,136 +124,87 @@
         <span class="sec-num accent">03</span>
         <h2 class="section-title">Projects</h2>
       </div>
+
       <div class="projects-grid">
-
-        <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">WebApp</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn active" data-status="ongoing" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Ongoing</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top">
-              <a href="#", target="_blank">Project repo ↗</a>
-              <a href="#", target="_blank">Go to Project ↗</a>
-            </div>
+        <article class="proj-card">
+          <div class="proj-topline">
+            <span class="proj-category">Web Application</span>
+            <span class="status-badge" data-status="ongoing">
+              <span class="status-dot"></span>
+              Ongoing
+            </span>
           </div>
-          <h3 class="proj-title">Elaundry - laundry Management saas System</h3>
-          <p class="proj-desc">Developed a Laundry Management System to help students manage their laundry services more easily and save time in their daily routines. The project was created to simplify the process of placing laundry orders, tracking service status, and reducing the hassle students often face with traditional laundry management. It includes features such as order placement, service tracking, customer management, and status updates to improve efficiency and user experience. Built with a focus on clean design, functionality, and practical problem-solving, the system demonstrates skills in web development, database management, and user-focused application design.
+
+          <h3 class="proj-title">E-Laundry Management System</h3>
+          <p class="proj-desc">
+            Student-focused laundry platform for placing orders, tracking service progress, and managing customers and order statuses through a centralized system.
           </p>
-          <div class="proj-tags">
-            <span>Python</span><span>Django</span><span>Html & CSS</span><span>MySQL</span><span>REST API</span>
-          </div>
-        </div>
 
-        <!-- project 2 -->
-        <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">Android App</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn" data-status="published" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Done</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top"><a href="https://github.com/ShrekBytes/ghurtejai", target="_blank">Project repo ↗</a></div>
+          <div class="proj-tags" aria-label="Technologies used">
+            <span>Python</span>
+            <span>Django</span>
+            <span>MySQL</span>
+            <span>REST API</span>
+            <span>HTML/CSS</span>
           </div>
-          <h3 class="proj-title">Ghurtejai - Tour planning and experience sharing app for Bangladesh.</h3>
-          <p class="proj-desc">Developed GhurteJai, a travel and tour management application designed to help users explore destinations, plan trips, and manage travel-related information more conveniently. The project focuses on creating a user-friendly experience with features for destination browsing, trip planning, and travel management while demonstrating skills in full-stack development, database integration, and responsive UI design.
+
+          <div class="proj-footer">
+            <span class="proj-link-disabled">Repository private</span>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-topline">
+            <span class="proj-category">Mobile Application</span>
+            <span class="status-badge" data-status="published">
+              <span class="status-dot"></span>
+              Completed
+            </span>
+          </div>
+
+          <h3 class="proj-title">GhurteJai: Tour Planning App</h3>
+          <p class="proj-desc">
+            Travel planning and experience-sharing application for discovering destinations, organizing trips, and managing travel information through a Flutter client and Django REST backend.
           </p>
-          <div class="proj-tags">
-            <span>Dart</span><span>Flutter</span><span>Django</span><span>PostgreSQL</span><span>DRF</span>
-          </div>
-        </div>
 
-        <!-- project 3 -->
-        <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">Edge Device</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn" data-status="published" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Done</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top"><a href="https://github.com/sadib017/Object-Detection-Using-ESP-32-CAM", target="_blank">Project repo ↗</a></div>
+          <div class="proj-tags" aria-label="Technologies used">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Django</span>
+            <span>DRF</span>
+            <span>PostgreSQL</span>
           </div>
-          <h3 class="proj-title">Object-Detection-Using-ESP-32-CAM</h3>
-          <p class="proj-desc">Developed an AI-powered Object Detection System using ESP32-CAM for real-time smart surveillance and monitoring. The project uses lightweight machine learning models to detect and identify objects through live video streaming, demonstrating practical applications of IoT, embedded systems, and edge AI in a low-cost and energy-efficient solution.
+
+          <div class="proj-footer">
+            <a href="https://github.com/ShrekBytes/ghurtejai" target="_blank" rel="noopener noreferrer" class="proj-link">View repository <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-topline">
+            <span class="proj-category">Edge AI</span>
+            <span class="status-badge" data-status="published">
+              <span class="status-dot"></span>
+              Completed
+            </span>
+          </div>
+
+          <h3 class="proj-title">ESP32-CAM Object Detection</h3>
+          <p class="proj-desc">
+            Low-cost real-time object detection prototype using ESP32-CAM and Edge Impulse for lightweight, energy-efficient monitoring at the edge.
           </p>
-          <div class="proj-tags">
-            <span>edge-impulse</span><span>C/C++</span><span>object detect</span><span>energy-efficient</span>
-          </div>
-        </div>
 
-        <!-- <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">Vision Transformers</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn" data-status="ongoing" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Ongoing</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top"><a href="#">Code ↗</a></div>
+          <div class="proj-tags" aria-label="Technologies used">
+            <span>ESP32-CAM</span>
+            <span>Edge Impulse</span>
+            <span>C/C++</span>
+            <span>Object Detection</span>
           </div>
-          <h3 class="proj-title">Breast Tumor Classification — ViT Ensemble</h3>
-          <p class="proj-desc">Lightweight Vision Transformer ensemble (TinyViT + LeViT) for breast tumor classification from ultrasound. Attention-map visualization as explainability alternative to Grad-CAM.</p>
-          <div class="proj-tags">
-            <span>TinyViT</span><span>LeViT</span><span>Transformers</span>
-          </div>
-        </div>
 
-        <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">External Validation</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn" data-status="ongoing" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Ongoing</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top"><a href="#">Notebook ↗</a></div>
+          <div class="proj-footer">
+            <a href="https://github.com/sadib017/Object-Detection-Using-ESP-32-CAM" target="_blank" rel="noopener noreferrer" class="proj-link">View repository <span aria-hidden="true">↗</span></a>
           </div>
-          <h3 class="proj-title">Thyroid External Validation — TN3K</h3>
-          <p class="proj-desc">Cross-dataset evaluation of the TN5000-trained model on TN3K. Aligned preprocessing, thresholds (FNA_HIGH=0.60, FNA_LOW=0.45), and metrics across notebooks for reproducibility.</p>
-          <div class="proj-tags">
-            <span>TN3K</span><span>Validation</span><span>FNA Triage</span>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-header">
-            <div class="proj-header-left">
-              <span class="proj-category">Data Science</span>
-              <div class="status-toggle-wrap">
-                <button class="status-btn" data-status="ongoing" onclick="cycleProjectStatus(this)">
-                  <span class="status-dot"></span>
-                  <span class="status-text">Ongoing</span>
-                </button>
-              </div>
-            </div>
-            <div class="proj-links-top"><a href="#">Code ↗</a></div>
-          </div> -->
-          <!-- <h3 class="proj-title">Cyberchondria Severity Prediction</h3>
-          <p class="proj-desc">Psychometric study using CSAS and IUS-12 instruments to predict cyberchondria severity. Built synthetic CSV pipelines for feature engineering and model testing.</p>
-          <div class="proj-tags">
-            <span>CSAS</span><span>IUS-12</span><span>Psychometrics</span>
-          </div>
-        </div> -->
-
+        </article>
       </div>
     </section>
 
@@ -289,10 +220,7 @@
           <div class="pub-year">
             2026
             <div class="status-toggle-wrap pub-status-wrap">
-              <button class="status-btn" data-status="under-review" onclick="cyclePubStatus(this)">
-                <span class="status-dot"></span>
-                <span class="status-text">Under Review</span>
-              </button>
+              <span class="status-badge" data-status="under-review"><span class="status-dot"></span>Under Review</span>
             </div>
           </div>
 
@@ -301,7 +229,7 @@
             <p class="pub-title">BoneFusionNet: A Detection Guided Multimodal Deep Learning with Clinical Metadata Fusion for Bone Tumor Classification on Radiographs</p>
             <p class="pub-authors">Sadib et al.</p>
             <div class="pub-tags"><span>ConvNeXt</span><span>Btxrd Bone Tumour Dataset</span><span>Radiographs</span><span>Fusion</span></div>
-            <div class="pub-links"><a href="#", target="_blank">Paper Link ↗</a><a href="https://github.com/sadib017/BoneFusionNet-A-Detection-Guided-Multimodal-Bone-Tumor-Classification-on-Radiographs", target="_blank">Code ↗</a></div>
+            <div class="pub-links"><span class="pub-link-disabled">Paper pending</span><a href="https://github.com/sadib017/BoneFusionNet-A-Detection-Guided-Multimodal-Bone-Tumor-Classification-on-Radiographs" target="_blank" rel="noopener noreferrer">Code ↗</a></div>
           </div>
         </div>
 
@@ -309,10 +237,7 @@
           <div class="pub-year">
             2026
             <div class="status-toggle-wrap pub-status-wrap">
-              <button class="status-btn" data-status="under-review" onclick="cyclePubStatus(this)">
-                <span class="status-dot"></span>
-                <span class="status-text">Under Review</span>
-              </button>
+              <span class="status-badge" data-status="under-review"><span class="status-dot"></span>Under Review</span>
             </div>
           </div>
           <div class="pub-body">
@@ -320,7 +245,7 @@
             <p class="pub-title">Uncertainty-Guided Ensemble Monte Carlo Learning for Thyroid Nodule Malignancy Prediction and Safe FNA Biopsy Triage from B-Mode Ultrasound</p>
             <p class="pub-authors">Sadib et al.</p>
             <div class="pub-tags"><span>Uncertainty</span><span>TN5000 Thyroid nodule dataset</span><span>FNA Reduction</span><span>FNA Triage</span></div>
-            <div class="pub-links"><a href="#", target="_blank">Paper Link ↗</a><a href="https://github.com/sadib017/Uncertainty-Guided-Thyroid-Malignancy-Prediction-with-FNA-Triage-System", target="_blank">Code ↗</a></div>
+            <div class="pub-links"><span class="pub-link-disabled">Paper pending</span><a href="https://github.com/sadib017/Uncertainty-Guided-Thyroid-Malignancy-Prediction-with-FNA-Triage-System" target="_blank" rel="noopener noreferrer">Code ↗</a></div>
           </div>
         </div>
 
@@ -328,10 +253,7 @@
           <div class="pub-year">
             2026
             <div class="status-toggle-wrap pub-status-wrap">
-              <button class="status-btn" data-status="ongoing" onclick="cyclePubStatus(this)">
-                <span class="status-dot"></span>
-                <span class="status-text">Ongoing</span>
-              </button>
+              <span class="status-badge" data-status="ongoing"><span class="status-dot"></span>Ongoing</span>
             </div>
           </div>
           <div class="pub-body">
@@ -339,7 +261,7 @@
             <p class="pub-title">Predicting Cyberchondria Severity Using Explainable Machine Learning: Incremental Validity of AI Health-Seeking Behavior Beyond Intolerance of Uncertainty</p>
             <p class="pub-authors">Sadib et al.</p>
             <div class="pub-tags"><span>Cyberchondria</span><span>Primary Data</span><span>Health-seeking behavior</span><span>AI Imapact</span></div>
-            <div class="pub-links"><a href="#", target="_blank">Paper Link ↗</a><a href="", target="_blank">Code ↗</a></div>
+            <div class="pub-links"><span class="pub-link-disabled">Paper pending</span><span class="pub-link-disabled">Code unavailable</span></div>
           </div>
         </div>
 
@@ -413,59 +335,61 @@
             <p class="edu-period">2019</p>
             <p class="edu-degree">Secondary School Certificate</p>
             <p class="edu-inst">Safiuddin Sarkar Academy School & College, Gazipur, Bangladesh</p>
-            <span class="edu-gpa">GPA: 5.00 / 5.0</span>
+            <span class="edu-gpa">GPA: 4.93 / 5.0</span>
           </div>
 
         </div>
       </section>
 
     <!-- CERTIFICATES -->
-  <section id="certificates" class="section reveal">
-    <div class="section-header">
-      <span class="sec-num accent">07</span>
-      <h2 class="section-title">Certificates</h2>
-    </div>
-    <div class="cert-list">
-
-  <div class="cert-row">
-    <div class="cert-left">
-      <a href="https://coursera.org/share/620135d0a88363a597ea6220a035ea92" target="_blank" class="cert-name">Deep Learning Specialization ↗</a>
-      <span class="cert-sep">–</span>
-      <span class="cert-org">Deeplearning.ai</span>
-    </div>
-    <span class="cert-date">January, 2026</span>
-  </div>
-
-  <div class="cert-row">
-    <div class="cert-left">
-      <a href="https://coursera.org/share/69fb5623dabc0c55521179d490b2fc6d" target="_blank" class="cert-name">Machine Learning Specialization ↗</a>
-      <span class="cert-sep">–</span>
-      <span class="cert-org">Stanford University</span>
-    </div>
-    <span class="cert-date">September, 2025</span>
-  </div>
-
-    <div class="cert-row">
-      <div class="cert-left">
-        <a href="https://coursera.org/share/332097cd64d870071d7b18fa34f159ee" target="_blank" class="cert-name">Python for Data Science, AI & Development ↗</a>
-        <span class="cert-sep">–</span>
-        <span class="cert-org">IBM</span>
+    <section id="certificates" class="section reveal">
+      <div class="section-header">
+        <span class="sec-num accent">07</span>
+        <h2 class="section-title">Certificates</h2>
       </div>
-      <span class="cert-date">September, 2025</span>
-    </div>
 
-    <div class="cert-row">
-      <div class="cert-left">
-        <a href="https://coursera.org/share/64e1df28fa05b74909c04242576eec51" target="_blank" class="cert-name">Data Visualization with Python ↗</a>
-        <span class="cert-sep">–</span>
-        <span class="cert-org">IBM</span>
+      <div class="cert-grid">
+        <article class="cert-card">
+          <div class="cert-icon" aria-hidden="true">DL</div>
+          <div class="cert-content">
+            <p class="cert-org">DeepLearning.AI</p>
+            <h3 class="cert-title">Deep Learning Specialization</h3>
+            <p class="cert-date">Issued January 2026</p>
+          </div>
+          <a href="https://coursera.org/share/620135d0a88363a597ea6220a035ea92" target="_blank" rel="noopener noreferrer" class="cert-link" aria-label="View Deep Learning Specialization credential">View credential <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="cert-card">
+          <div class="cert-icon" aria-hidden="true">ML</div>
+          <div class="cert-content">
+            <p class="cert-org">Stanford University</p>
+            <h3 class="cert-title">Machine Learning Specialization</h3>
+            <p class="cert-date">Issued September 2025</p>
+          </div>
+          <a href="https://coursera.org/share/69fb5623dabc0c55521179d490b2fc6d" target="_blank" rel="noopener noreferrer" class="cert-link" aria-label="View Machine Learning Specialization credential">View credential <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="cert-card">
+          <div class="cert-icon" aria-hidden="true">PY</div>
+          <div class="cert-content">
+            <p class="cert-org">IBM</p>
+            <h3 class="cert-title">Python for Data Science, AI &amp; Development</h3>
+            <p class="cert-date">Issued September 2025</p>
+          </div>
+          <a href="https://coursera.org/share/332097cd64d870071d7b18fa34f159ee" target="_blank" rel="noopener noreferrer" class="cert-link" aria-label="View Python for Data Science, AI and Development credential">View credential <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="cert-card">
+          <div class="cert-icon" aria-hidden="true">DV</div>
+          <div class="cert-content">
+            <p class="cert-org">IBM</p>
+            <h3 class="cert-title">Data Visualization with Python</h3>
+            <p class="cert-date">Issued July 2025</p>
+          </div>
+          <a href="https://coursera.org/share/64e1df28fa05b74909c04242576eec51" target="_blank" rel="noopener noreferrer" class="cert-link" aria-label="View Data Visualization with Python credential">View credential <span aria-hidden="true">↗</span></a>
+        </article>
       </div>
-      <span class="cert-date">July, 2025</span>
-    </div>
-
-</div>
-  </section>
-
+    </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section reveal">
@@ -500,7 +424,7 @@
         </div>
         <div class="skill-card">
           <p class="skill-label">Platforms</p>
-          <p class="skill-body">Kaggle · Google Colab · GitHub · Linux · Docker</p>
+          <p class="skill-body">Kaggle · Google Colab · GitHub · Postman · Docker · Looker Studio</p>
         </div>
       </div>
     </section>
@@ -512,13 +436,13 @@
     <div class="footer-inner">
       <h2 class="footer-name"><span class="accent">Sadibul Hasan Sadib</span></h2>
       <div class="footer-links">
-        <a href="mailto:your@email.com", target="_blank">Sadibhasan520@gmail.com</a>
-        <a href="https://github.com/sadib017", target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/sadib-hasan-85082b185/", target="_blank">LinkedIn</a>
-        <a href="http://t.me/Sadib_hasan", target="_blank">Telegram</a>
+        <a href="mailto:Sadibhasan520@gmail.com" target="_blank" rel="noopener noreferrer">Sadibhasan520@gmail.com</a>
+        <a href="https://github.com/sadib017" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/sadib-hasan-85082b185/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="http://t.me/Sadib_hasan" target="_blank" rel="noopener noreferrer">Telegram</a>
       </div>
       <p class="footer-location">Dhaka, Bangladesh</p>
-      <p class="footer-copy">© 2026 Sadib · Last updated May 2026</p>
+      <p class="footer-copy">© 2026 Sadib · Last updated July 2026</p>
     </div>
     <button class="back-to-top" id="backTop" aria-label="Back to top">↑</button>
   </footer>
