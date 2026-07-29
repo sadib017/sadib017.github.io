@@ -756,8 +756,8 @@ footer {
 }
 .cert-card {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.9rem 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
   align-items: start;
   background: var(--card);
   border: 1px solid var(--rule);
@@ -769,20 +769,6 @@ footer {
   transform: translateY(-3px);
   border-color: var(--accent);
   box-shadow: 0 16px 40px rgba(46, 204, 113, 0.12);
-}
-.cert-icon {
-  display: grid;
-  grid-row: 1 / span 2;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--accent);
-  border-radius: 9px;
-  background: rgba(46, 204, 113, 0.08);
-  color: var(--accent);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
 }
 .cert-content {
   min-width: 0;
