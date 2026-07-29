@@ -767,8 +767,8 @@ footer {
 }
 .cert-card:hover {
   transform: translateY(-3px);
-  border-color: var(--cert-link);
-  box-shadow: var(--shadow);
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(46, 204, 113, 0.12);
 }
 .cert-icon {
   display: grid;
@@ -776,10 +776,10 @@ footer {
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid var(--cert-link);
+  border: 1px solid var(--accent);
   border-radius: 9px;
-  background: var(--bg3);
-  color: var(--cert-link);
+  background: rgba(46, 204, 113, 0.08);
+  color: var(--accent);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -810,11 +810,11 @@ footer {
 .cert-link {
   grid-column: 2;
   width: fit-content;
-  color: var(--cert-link);
+  color: var(--accent);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 .cert-link:hover {
-  color: var(--cert-link-hover);
+  color: var(--accent2);
 }
