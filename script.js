@@ -2,90 +2,144 @@
 const html = document.documentElement;
 const toggleBtn = document.getElementById('themeToggle');
 const toggleIcon = document.getElementById('toggleIcon');
+
 function applyTheme(theme) {
-  html.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
-  toggleIcon.textContent = theme === 'dark' ? '☀' : '◑';
+  const selectedTheme = theme === 'light' ? 'light' : 'dark';
+
+  html.setAttribute('data-theme', selectedTheme);
+  localStorage.setItem('theme', selectedTheme);
+
+  if (toggleIcon) {
+    toggleIcon.textContent = selectedTheme === 'dark' ? '☀' : '◑';
+  }
 }
-toggleBtn.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  applyTheme(current === 'dark' ? 'light' : 'dark');
+
+// Load the previously selected theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+
+// Change theme when the button is clicked
+toggleBtn?.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme');
+
+  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
 });
-// Load saved preference
-const saved = localStorage.getItem('theme') || 'dark';
-applyTheme(saved);
+
+
 /* ── SCROLL REVEAL ── */
 const revealEls = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.07 });
-revealEls.forEach(el => revealObs.observe(el));
-/* ── ACTIVE NAV LINK ── */
-const sections = document.querySelectorAll('section[id], div[id="about"], footer[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-const navObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const id = e.target.getAttribute('id');
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
       });
+    },
+    {
+      threshold: 0.07
     }
+  );
+
+  revealEls.forEach((element) => {
+    revealObserver.observe(element);
   });
-}, { rootMargin: '-40% 0px -55% 0px' });
-sections.forEach(s => navObs.observe(s));
-/* ── NAVBAR SHADOW ON SCROLL ── */
+} else {
+  // Show all sections for browsers without IntersectionObserver support
+  revealEls.forEach((element) => {
+    element.classList.add('visible');
+  });
+}
+
+
+/* ── ACTIVE NAVIGATION LINK ── */
+const sections = document.querySelectorAll('section[id], footer[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+if ('IntersectionObserver' in window) {
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const currentSectionId = entry.target.id;
+
+        navLinks.forEach((link) => {
+          const linkTarget = link.getAttribute('href');
+
+          link.classList.toggle(
+            'active',
+            linkTarget === `#${currentSectionId}`
+          );
+        });
+      });
+    },
+    {
+      rootMargin: '-40% 0px -55% 0px'
+    }
+  );
+
+  sections.forEach((section) => {
+    navObserver.observe(section);
+  });
+}
+
+
+/* ── NAVBAR SHADOW AND BACK-TO-TOP BUTTON ── */
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.style.boxShadow = window.scrollY > 10
-    ? '0 2px 20px rgba(0,0,0,0.3)'
-    : 'none';
-});
-/* ── BACK TO TOP ── */
 const backTop = document.getElementById('backTop');
-backTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+function updateScrollUI() {
+  // Add navbar shadow after scrolling
+  if (navbar) {
+    navbar.style.boxShadow =
+      window.scrollY > 10
+        ? '0 2px 20px rgba(0, 0, 0, 0.3)'
+        : 'none';
+  }
+
+  // Show or hide the back-to-top button
+  if (backTop) {
+    const shouldShow = window.scrollY > 400;
+
+    backTop.style.opacity = shouldShow ? '1' : '0';
+    backTop.style.pointerEvents = shouldShow ? 'auto' : 'none';
+  }
+}
+
+if (backTop) {
+  backTop.style.opacity = '0';
+  backTop.style.pointerEvents = 'none';
+  backTop.style.transition = 'opacity 0.3s ease';
+
+  backTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+window.addEventListener('scroll', updateScrollUI, {
+  passive: true
 });
-window.addEventListener('scroll', () => {
-  backTop.style.opacity = window.scrollY > 400 ? '1' : '0';
-  backTop.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
-});
-backTop.style.opacity = '0';
-backTop.style.transition = 'opacity 0.3s';
-/* ── AVATAR
+
+// Run once when the page loads
+updateScrollUI();
 
 
-/* ── INTEREST TAG interaction ── */
-document.querySelectorAll('.interest-tag').forEach(tag => {
+/* ── INTEREST TAG INTERACTION ── */
+document.querySelectorAll('.interest-tag').forEach((tag) => {
   tag.addEventListener('click', () => {
-    tag.style.borderColor = 'var(--accent)';
-    tag.style.color = 'var(--accent)';
-    setTimeout(() => {
-      tag.style.borderColor = '';
-      tag.style.color = '';
+    tag.classList.add('selected');
+
+    window.setTimeout(() => {
+      tag.classList.remove('selected');
     }, 600);
   });
 });
-/* ── STATUS CYCLE ── */
-const STATUS_STATES = ['ongoing', 'under-review', 'published'];
-const PROJECT_LABELS = { 'ongoing': 'Ongoing', 'under-review': 'Under Review', 'published': 'Published' };
-const PUB_LABELS     = { 'ongoing': 'In Progress', 'under-review': 'Under Review', 'published': 'Published' };
-
-function cycleProjectStatus(btn) {
-  const current = btn.getAttribute('data-status');
-  const next = STATUS_STATES[(STATUS_STATES.indexOf(current) + 1) % STATUS_STATES.length];
-  btn.setAttribute('data-status', next);
-  btn.querySelector('.status-text').textContent = PROJECT_LABELS[next];
-}
-
-function cyclePubStatus(btn) {
-  const current = btn.getAttribute('data-status');
-  const next = STATUS_STATES[(STATUS_STATES.indexOf(current) + 1) % STATUS_STATES.length];
-  btn.setAttribute('data-status', next);
-  btn.querySelector('.status-text').textContent = PUB_LABELS[next];
-}
