@@ -400,6 +400,8 @@ nav {
 .proj-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   min-height: 24px;
   margin-top: auto;
   padding-top: 1rem;
