@@ -1065,3 +1065,55 @@ svg.ico[fill="none"] { fill: none; }
 }
 .theme-toggle { border-radius: 9999px; }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── LINK BUTTONS: aligned grid in the hero, brighter so they read at a glance ── */
+.hero-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 520px; }
+.hero-links .link-btn-primary { grid-column: span 2; }
+.hero-links .link-btn { justify-content: center; }
+.link-btn { color: var(--ink); border-color: rgba(46, 204, 113, 0.28); font-size: 12px; }
+.link-btn .ico { color: var(--accent); }
+.link-btn:hover .ico { color: inherit; }
+.link-btn-primary { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 16px rgba(46, 204, 113, 0.15); }
+.link-btn-primary:hover .ico { color: var(--bg); }
+
+/* ── LAYOUT TIGHTENING ── */
+.section { padding: 64px 0; }
+.section-header { margin-bottom: 36px; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: center; margin-top: 0; }
+.about-grid .about-statement { max-width: none; }
+.about-focus { display: block; padding: 24px 28px; }
+.about-focus-label { margin-bottom: 16px; }
+.about-focus-list { display: grid; gap: 12px; }
+.edu { max-width: 880px; }
+#skills .ticker { border-top: 0; border-bottom: 0; margin-top: 24px; }
+footer { border-top: 0; background: var(--bg); }
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .section { padding: 48px 0; }
+}
+footer { padding-top: 64px; }
+.about-grid .about-statement { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+
+/* ── ROUND 3: tighter sections, compact timelines, no header rules ── */
+.section { padding: 40px 0; }
+.section-header { margin-bottom: 28px; }
+.hud-row .hud-line { visibility: hidden; }
+.edu { max-width: 760px; gap: 12px; }
+.edu::before, .edu::after { left: 136px; }
+.edu-item { gap: 40px; }
+.edu-item::before { left: 131px; top: 24px; }
+.edu-when { padding-top: 21px; }
+.edu-card { padding: 18px 22px; gap: 8px; }
+.edu-card .card-title { font-size: 18px; line-height: 26px; }
+.xp .card-desc { font-size: 14px; line-height: 22px; }
+.xp-toggle { padding: 4px 12px; font-size: 10px; }
+@media (min-width: 641px) { .xp .edu-item::before { top: 24px; } }
+@media (max-width: 640px) {
+  .section { padding: 32px 0; }
+  .edu::before, .edu::after { left: 5px; }
+  .edu-item { gap: 8px; }
+  .edu-item::before { left: 0; top: 4px; }
+  .edu-when { padding-top: 0; }
+}
