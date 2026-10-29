@@ -1136,3 +1136,5 @@ footer { padding-top: 64px; }
 }
 .portrait-tag-l { left: 12px; }
 .portrait-tag-r { right: 12px; }
+/* photo fills the frame; change object-position to move the crop (the ASCII follows it) */
+.portrait-photo { object-fit: cover; object-position: 50% 25%; }
