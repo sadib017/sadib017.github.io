@@ -24,7 +24,7 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Back to top"><span class="nav-dot"></span>S.H.S</a>
+      <a href="#hero" class="nav-logo" aria-label="Back to top"><img class="nav-bear" src="favicon.svg" alt="" width="22" height="22" />S.H.S</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -87,15 +87,15 @@
         </div>
       </div>
 
-      <figure class="portrait" id="portrait" aria-label="Sadibul Hasan Sadib, rebuilt as an interactive 3D point cloud">
-        <div class="portrait-head"><span>01 / 01 &nbsp;Portrait</span><span id="portraitRot">YAW +0.00 &nbsp;PITCH +0.00</span></div>
+      <figure class="portrait" id="portrait" aria-label="Portrait of Sadibul Hasan Sadib">
+        <div class="portrait-head"><span>01 / 01 &nbsp;Portrait</span><span>ASCII 72 × 82</span></div>
         <div class="portrait-stage">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-          <canvas id="portraitGL"></canvas>
-          <canvas id="portraitHUD" aria-hidden="true"></canvas>
-          <img class="portrait-fallback" src="pro.png" alt="Sadibul Hasan Sadib" />
+          <img class="portrait-photo" src="photo.jpg" alt="Sadibul Hasan Sadib" width="770" height="880" />
+          <canvas id="portraitAscii" aria-hidden="true"></canvas>
+          <span class="portrait-tag portrait-tag-l">S.H. Sadib</span><span class="portrait-tag portrait-tag-r">Dhaka</span>
         </div>
-        <figcaption class="portrait-foot"><span id="portraitPts">Depth model</span><span>Move to tilt · Click to splash</span></figcaption>
+        <figcaption class="portrait-foot"><span id="portraitPts">Decoding</span><span>Hover to scan · Click to replay</span></figcaption>
       </figure>
     </div>
 
