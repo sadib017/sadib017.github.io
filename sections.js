@@ -59,13 +59,9 @@
   const projLabel = $('#projFilterLabel');
   const projEmpty = $('#projEmpty');
 
-  const SKILLS = ['Python', 'SQL', 'PostgreSQL', 'MySQL', 'Redis', 'Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'TensorFlow',
-    'Django', 'Laravel', 'React', 'REST APIs', 'Celery', 'Docker', 'Nginx', 'JavaScript', 'C/C++', 'Computer Vision', 'Power BI', 'Flutter', 'Git'];
-  const LINKS = [['Python', 'Pandas'], ['Pandas', 'NumPy'], ['Python', 'Django'], ['Python', 'Scikit-learn'], ['Scikit-learn', 'PyTorch'],
-    ['PyTorch', 'TensorFlow'], ['PyTorch', 'Computer Vision'], ['Computer Vision', 'C/C++'], ['SQL', 'PostgreSQL'], ['SQL', 'MySQL'],
-    ['SQL', 'Power BI'], ['Pandas', 'Power BI'], ['Django', 'PostgreSQL'], ['Django', 'MySQL'], ['Django', 'Celery'], ['Celery', 'Redis'],
-    ['Laravel', 'PostgreSQL'], ['Laravel', 'React'], ['React', 'JavaScript'], ['REST APIs', 'Django'], ['REST APIs', 'Laravel'],
-    ['Docker', 'Django'], ['Docker', 'Nginx'], ['Redis', 'Laravel'], ['Flutter', 'REST APIs'], ['Git', 'Docker'], ['Python', 'SQL']];
+  const G = window.SITE.skills.graph; // edit nodes and links in content.js
+  const SKILLS = Object.keys(G.nodes);
+  const LINKS = G.links;
 
   // category view: turn each "A · B · C" list into skill chips that drive the same filter
   $$('#stackList dd').forEach((dd) => {
@@ -115,14 +111,8 @@
   }
   $$('[data-clear-skill]').forEach((b) => b.addEventListener('click', () => active && setSkill(active)));
 
-  // hand placed so clusters read clearly: data left, backend middle, ML right
-  const POS = {
-    NumPy: [0.08, 0.12], Pandas: [0.27, 0.10], Python: [0.50, 0.14], PyTorch: [0.76, 0.10], TensorFlow: [0.93, 0.18],
-    'Power BI': [0.07, 0.36], SQL: [0.26, 0.33], 'REST APIs': [0.44, 0.38], Django: [0.61, 0.32], 'Scikit-learn': [0.83, 0.36],
-    MySQL: [0.12, 0.58], PostgreSQL: [0.32, 0.58], Celery: [0.56, 0.58], 'Computer Vision': [0.82, 0.58],
-    JavaScript: [0.07, 0.80], Laravel: [0.25, 0.80], Redis: [0.44, 0.78], Docker: [0.63, 0.80], 'C/C++': [0.90, 0.80],
-    React: [0.15, 0.93], Flutter: [0.36, 0.93], Git: [0.55, 0.93], Nginx: [0.73, 0.93],
-  };
+  const POS = G.nodes;
+
   function layoutGraph() {
     if (!graph) return;
     const W = graph.clientWidth, H = graph.clientHeight;
@@ -232,13 +222,12 @@
   if (!dlg || !dlg.showModal) return;
   const go = (id) => () => document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
   const items = [
-    ...[['about', 'About'], ['skills', 'Technical skills'], ['projects', 'Projects'], ['experience', 'Experience'], ['publications', 'Research'], ['education', 'Education'], ['certificates', 'Certifications'], ['contact', 'Contact']]
-      .map(([id, t]) => ({ group: 'Sections', label: t, hint: 'Jump', run: go(id) })),
+    ...window.SITE.sections.map((x) => ({ group: 'Sections', label: x.label || x.title, hint: 'Jump', run: go(x.id) })),
     ...cards.map((c) => ({ group: 'Projects', label: `${$('.card-title', c).textContent} · ${c.dataset.skills.split(',').slice(0, 3).join(', ')}`, hint: 'Open', keys: c.dataset.skills,
       run: () => { c.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' }); c.classList.add('flash'); setTimeout(() => c.classList.remove('flash'), 1400); } })),
     ...rows.map((r) => ({ group: 'Papers', label: r.children[1].textContent, hint: 'Read', run: () => { go('publications')(); if (r.getAttribute('aria-expanded') !== 'true') r.click(); } })),
-    { group: 'Actions', label: 'Download CV', hint: 'PDF', run: () => window.open('Sadib_CV.pdf', '_blank', 'noopener') },
-    { group: 'Actions', label: 'Copy email', hint: 'Copy', stay: true, run: () => navigator.clipboard?.writeText('Sadibhasan520@gmail.com').then(() => { toast.textContent = 'Email copied'; }, () => { toast.textContent = 'Copy failed. Email: Sadibhasan520@gmail.com'; }) },
+    { group: 'Actions', label: 'Download CV', hint: 'PDF', run: () => window.open(window.SITE.person.cv, '_blank', 'noopener') },
+    { group: 'Actions', label: 'Copy email', hint: 'Copy', stay: true, run: () => navigator.clipboard?.writeText(window.SITE.person.email).then(() => { toast.textContent = 'Email copied'; }, () => { toast.textContent = `Copy failed. Email: ${window.SITE.person.email}`; }) },
     { group: 'Actions', label: 'Toggle light / dark theme', hint: 'Theme', stay: true, run: () => document.getElementById('themeToggle')?.click() },
   ];
   let shown = [], sel = 0;

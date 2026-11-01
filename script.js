@@ -207,7 +207,7 @@ document.querySelectorAll('[data-words]').forEach((el) => {
 /* ── LOCAL CLOCK (DHAKA) ── */
 const clock = document.getElementById('localClock');
 if (clock) {
-  const fmtClock = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const fmtClock = new Intl.DateTimeFormat('en-GB', { timeZone: (window.SITE && window.SITE.hero.telemetry.timeZone) || 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
   const tick = () => { clock.textContent = fmtClock.format(new Date()); };
   tick();
   setInterval(tick, 1000);
