@@ -1224,7 +1224,7 @@ button.card-link { background: none; border: 0; padding: 0; cursor: pointer; }
 }
 
 /* research table: calmer, more readable titles */
-.tbl td:nth-child(2) { font-size: 15px; line-height: 24px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; text-wrap: pretty; max-width: 68ch; }
+.tbl td:nth-child(2) { font-size: 15px; line-height: 24px; font-weight: 500; color: color-mix(in srgb, var(--ink) 50%, var(--ink2)); letter-spacing: -0.005em; text-wrap: pretty; max-width: 68ch; }
 .pub-row td { padding-top: 20px; padding-bottom: 20px; }
 .pub-row .mono-cell { padding-top: 23px; }
 @media (min-width: 900px) { .tbl td:nth-child(2) { text-align: justify; } } /* narrow columns justify into big gaps */
