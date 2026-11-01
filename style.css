@@ -1198,3 +1198,61 @@ button.card-link { background: none; border: 0; padding: 0; cursor: pointer; }
 .cert-dialog img { display: block; max-width: 100%; max-height: 88vh; border-radius: 8px; }
 .cert-close { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; border-radius: 9999px; border: 1px solid var(--accent); background: var(--bg); color: var(--accent); font-size: 20px; cursor: pointer; }
 .cert-close:hover { background: var(--accent); color: #101010; }
+
+/* minimal timelines: education + experience without card boxes */
+.edu { gap: 28px; }
+.edu-card, .xp-item:first-child .edu-card { border: 0; background: none; padding: 0; box-shadow: none; gap: 4px; }
+.edu-card:hover { border: 0; box-shadow: none; }
+.edu-when { padding-top: 2px; }
+.edu-item::before { top: 6px; }
+@media (min-width: 641px) { .xp .edu-item::before { top: 6px; } }
+.edu-card .card-title { font-size: 18px; line-height: 26px; }
+.edu-card .card-meta { order: 2; }
+.edu-card .card-title { order: 1; }
+.edu-card > :not(.card-meta):not(.card-title) { order: 3; }
+#eduLine .meter { display: none; }
+#eduLine .edu-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; row-gap: 2px; }
+#eduLine .card-title, #eduLine .card-meta { grid-column: 1; }
+#eduLine .meter-label { grid-column: 2; grid-row: 1 / span 2; align-self: center; text-align: right; }
+.xp .card-desc { margin-top: 4px; }
+.xp-toggle { border: 0; padding: 0; background: none; margin-top: 2px; color: var(--accent); }
+.xp-toggle:hover { background: none; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 640px) {
+  .edu-item::before { top: 4px; }
+  #eduLine .edu-card { grid-template-columns: 1fr; }
+  #eduLine .meter-label { grid-column: 1; grid-row: auto; text-align: left; }
+}
+
+/* research table: calmer, more readable titles */
+.tbl td:nth-child(2) { font-size: 15px; line-height: 24px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; text-wrap: pretty; max-width: 68ch; }
+.pub-row td { padding-top: 20px; padding-bottom: 20px; }
+.pub-row .mono-cell { padding-top: 23px; }
+@media (min-width: 900px) { .tbl td:nth-child(2) { text-align: justify; } } /* narrow columns justify into big gaps */
+.pub-empty td { color: var(--ink2); font-size: 14px; padding: 24px 16px; }
+.pub-empty td:nth-child(2) { font-weight: 400; color: var(--ink2); text-align: left; }
+@media (min-width: 641px) {
+  .tbl table { table-layout: fixed; }
+  .tbl th:nth-child(1) { width: 64px; } .tbl th:nth-child(3) { width: 112px; } .tbl th:nth-child(4) { width: 150px; }
+}
+
+/* about: inline tool chips + four pillars */
+.about-statement .chip { display: inline-block; vertical-align: 0.18em; padding: 0.18em 0.6em; margin: 0 0.04em; border: 1px solid rgba(0, 217, 146, 0.45); border-radius: 9999px; background: rgba(0, 217, 146, 0.08); color: var(--accent); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.42em; font-weight: 500; letter-spacing: 0.06em; line-height: 1.4; }
+.about-pillars { grid-column: 1 / -1; list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.about-pillars li { position: relative; padding: 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--bg2); transition: border-color 0.3s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.about-pillars li::before { content: ''; position: absolute; left: 20px; right: 20px; top: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.about-pillars li:hover { border-color: rgba(0, 217, 146, 0.45); transform: translateY(-2px); }
+.about-pillars li:hover::before { transform: scaleX(1); }
+.pillar-n { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--accent); }
+.about-pillars h3 { margin: 10px 0 6px; font-size: 18px; line-height: 24px; font-weight: 600; color: var(--ink); }
+.about-pillars p { font-size: 14px; line-height: 22px; color: var(--ink2); }
+@media (max-width: 960px) { .about-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .about-pillars { gap: 10px; } .about-pillars li { padding: 14px; } .about-pillars h3 { font-size: 16px; margin: 6px 0 4px; } .about-pillars p { font-size: 13px; line-height: 20px; } }
+.about-statement .nowrap { white-space: nowrap; }
+.about-focus-list li b { color: var(--ink); font-weight: 600; }
+@media (min-width: 961px) {
+  .about-grid { grid-template-columns: minmax(0, 1fr) 332px; gap: 32px; }
+  .about-grid .about-statement { font-size: clamp(1.75rem, 2.5vw, 2.2rem); } /* keeps the statement wide (5 lines) next to a roomy focus box */
+}
+.about-focus { padding: 24px 26px; }
+.about-focus-list { gap: 14px; }
+.about-focus-list li { font-size: 15px; line-height: 22px; color: var(--ink); }

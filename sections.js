@@ -175,12 +175,13 @@
     const f = btn.dataset.field;
     btn.parentElement.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
     let n = 0;
-    $$('#pubRows tr').forEach((tr) => {
-      const show = f === 'all' || tr.dataset.field === f;
+    $$('#pubRows tr:not(.pub-empty)').forEach((tr) => {
+      const show = f === 'all' || (tr.dataset.field || '').split(' ').includes(f); // a paper can carry several tags, e.g. "imaging conference"
       tr.hidden = !show;
       if (show && tr.classList.contains('pub-row')) n++;
     });
     const c = $('#pubCount'); if (c) c.textContent = n;
+    const empty = $('#pubRows .pub-empty'); if (empty) empty.hidden = n > 0;
   }));
 
   /* ── COUNT-UP STATS ── */
