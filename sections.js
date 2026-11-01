@@ -271,3 +271,13 @@
   list.addEventListener('click', (e) => { const li = e.target.closest('.palette-item'); if (li) run(+li.dataset.i); });
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 })();
+
+/* ── CERTIFICATE LIGHTBOX ── */
+(function () {
+  const dlg = document.getElementById('certDialog');
+  if (!dlg || !dlg.showModal) return;
+  const img = dlg.querySelector('img');
+  document.querySelectorAll('[data-cert]').forEach((b) => b.addEventListener('click', () => { img.src = b.dataset.cert; dlg.showModal(); }));
+  dlg.querySelector('.cert-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); }); // backdrop click
+})();

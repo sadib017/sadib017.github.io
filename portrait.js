@@ -20,6 +20,7 @@
   const ctx = cv.getContext('2d');
   const RAMP = ' .,:;-=+*x%#@';
   const CELL = 8; // target glyph cell in CSS px
+  const HOLD = 4200, SWEEP = 3000, FADE = 700; // ms: ASCII hold, sweep across the frame, per-cell fade
   const glyph = (v) => RAMP[Math.min(RAMP.length - 1, Math.floor((v / 256) * RAMP.length))];
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   let BG = '#0f1117', INK = '#e8eaf0', ACC = '#2ecc71';
@@ -70,7 +71,7 @@
     for (let i = 0; i < N; i++) {
       const x = i % cols, y = (i / cols) | 0;
       settle[i] = 250 + Math.random() * 900;
-      reveal[i] = 2000 + ((x / cols) * 0.55 + (y / rows) * 0.45) * 1300 + Math.random() * 260; // diagonal sweep
+      reveal[i] = HOLD + ((x / cols) * 0.55 + (y / rows) * 0.45) * SWEEP + Math.random() * 500; // slow diagonal sweep
       green[i] = Math.random() < 0.035 ? 1 : 0;
     }
   }
@@ -88,15 +89,15 @@
     const flick = Math.floor(t / 110);
     let left = 0;
     for (let i = 0; i < N; i++) {
-      if (t >= reveal[i] + 140) continue;
+      if (t >= reveal[i] + FADE) continue;
       left++;
-      if (t >= reveal[i]) { drawCell(i, glyph(lum[i]), ACC); continue; } // green flash as it clears
+      if (t >= reveal[i]) { const k = 1 - (t - reveal[i]) / FADE; drawCell(i, glyph(lum[i]), ACC, k, k); continue; } // green glyph fading out as the photo shows through
       const real = t >= settle[i];
       const ch = real ? glyph(lum[i]) : RAMP[(Math.random() * RAMP.length) | 0];
       const hot = green[i] && ((i + flick) % 5 < 2);
       drawCell(i, ch, hot ? ACC : INK, real ? 0.4 + 0.6 * (lum[i] / 255) : 0.4);
     }
-    setState(t < 1900 ? `Decoding ${Math.min(100, Math.round((t / 1900) * 100))}%` : 'Rendering');
+    setState(t < HOLD ? `Decoding ${Math.min(100, Math.round((t / HOLD) * 100))}%` : 'Rendering');
     if (left) raf = requestAnimationFrame(intro);
     else { mode = 'idle'; ctx.clearRect(0, 0, W, H); setState('Original'); }
   }
