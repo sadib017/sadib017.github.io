@@ -142,6 +142,14 @@
   // cover the frame right away so the photo never flashes before the glyphs
   const r0 = stage.getBoundingClientRect();
   cv.width = r0.width; cv.height = r0.height; ctx.fillStyle = BG; ctx.fillRect(0, 0, cv.width, cv.height);
+  // size the frame to the photo's own shape (clamped so very tall or wide images still sit well);
+  // an optional data-focus="x% y%" on the img moves the crop, and the ASCII grid follows it
+  function fit() {
+    if (img.dataset.focus) img.style.objectPosition = img.dataset.focus;
+    if (img.naturalWidth) stage.style.setProperty('--ar', Math.min(1.2, Math.max(0.66, img.naturalWidth / img.naturalHeight)).toFixed(4));
+  }
+  img.addEventListener('load', fit);
+  fit();
   const ready = img.decode ? img.decode().catch(() => {}) : new Promise((res) => (img.complete ? res() : img.addEventListener('load', res, { once: true })));
-  Promise.all([ready, document.fonts ? document.fonts.ready : null]).then(() => (img.naturalWidth ? start() : showPhoto()));
+  Promise.all([ready, document.fonts ? document.fonts.ready : null]).then(() => { fit(); return img.naturalWidth ? requestAnimationFrame(start) : showPhoto(); });
 })();
