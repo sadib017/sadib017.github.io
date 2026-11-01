@@ -1166,3 +1166,12 @@ body { font-feature-settings: "calt", "rlig"; }
 .link-btn-primary:hover { background: transparent; color: var(--accent); }
 .link-btn-primary:hover .ico { color: var(--accent); }
 .back-to-top { border-radius: 9999px; }
+.portrait-stage { aspect-ratio: var(--ar, 4 / 3); }
+
+/* Download CV: same pill as its neighbours, green outline + tint; fills only on hover */
+.link-btn-primary { background: rgba(0, 217, 146, 0.1); color: var(--accent); border-color: var(--accent); font-weight: 500; }
+.link-btn-primary .ico { color: var(--accent); }
+.link-btn-primary:hover { background: var(--accent); color: #101010; box-shadow: 0 0 18px rgba(0, 217, 146, 0.3); }
+.link-btn-primary:hover .ico { color: #101010; }
+/* beat .footer-links a:hover, which turned the label green on the green fill */
+a.link-btn.link-btn-primary:hover { color: #101010; }
